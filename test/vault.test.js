@@ -1,4 +1,5 @@
 const expect = require('chai').expect;
+let Vault = require('../Vault/Vault');
 
 describe('Vault Tests', () => {
     describe('Reverse Array', () => {
@@ -6,7 +7,7 @@ describe('Vault Tests', () => {
             let data = "I want this job.";
 
             // Code here
-
+            data = Vault.reverseArray(data);
             expect(['job', 'this', 'want', 'I']).to.deep.equal(data);
         });
     });
@@ -15,7 +16,7 @@ describe('Vault Tests', () => {
             let data = ['200', '450', '2.5', '1', '505.5', '2'];
 
             // Code here
-
+            data = Vault.orderArray(data);
             expect([1, 2, 2.5, 200, 450, 505.5]).to.deep.equal(data);
         });
     });
@@ -25,11 +26,15 @@ describe('Vault Tests', () => {
             let data2 = [2, 4, 5, 7, 8, 9, 10];
 
             // Code here
-
+            let copyArr1 = data1.slice(0);
+            let copyArr2 = data2.slice(0);
+            let data = Vault.getDiffArray(copyArr2, copyArr1);
             expect([8, 9, 10]).to.deep.equal(data);
 
             // Code here
-
+            copyArr1 = data1.slice(0);
+            copyArr2 = data2.slice(0);
+            data = Vault.getDiffArray(copyArr1, copyArr2);
             expect([1, 3, 6]).to.deep.equal(data);
         });
     });
@@ -45,7 +50,7 @@ describe('Vault Tests', () => {
             };
 
             // Code here
-
+            let distance = Vault.getGeoLocationDistance(place1, place2);
             expect(distance).to.equal('36.91');
         });
     });
@@ -55,7 +60,7 @@ describe('Vault Tests', () => {
             let time2 = '2016-06-05T15:00:00';
 
             // Code here
-
+            let timeDiff = Vault.getTimeDifference(time1, time2);
             expect(timeDiff).to.equal('3 hours ago');
         });
     });
